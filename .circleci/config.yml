@@ -1,0 +1,19 @@
+version: 2.1
+
+orbs:
+  hello_world: a4geru/hello_world@dev:first
+
+jobs:
+  build:
+    docker:
+    - image: bash
+    steps:
+    - run: "echo 'testing building...'"
+    - hello_world/hello:
+        username: "4geru"
+
+
+workflows:
+  main:
+    jobs:
+    - build
