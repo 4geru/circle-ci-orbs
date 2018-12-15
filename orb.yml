@@ -4,9 +4,16 @@ description: A test orb with an example description.
 jobs:
   bye:
     executor: ruby
+    parameters:
+      username:
+        type: string
+        description: A name of the user to greet
     steps:
-      - bey:
-          username: "4geru"
+      - run:
+          name: Call Bye
+          command: echo 'success to display'
+      - bye:
+          username: << parameters.username >>
 
 commands:
   hello:
@@ -18,14 +25,14 @@ commands:
     steps:
       - run: "echo 'CircleCI Orbs ミニハッカソンへようこそ、<< parameters.username >>！'"
 
-  bey:
+  bye:
     description: Good bye :)
     parameters:
       username:
         type: string
         description: A name of the user to greet
     steps:
-      - run: "echo -e '🍺🍣 ${LIGHT_GREEN} Light Green ${NC}<< parameters.username >>！'"
+      - run: "echo -e '🍺🍣 ${LIGHT_GREEN}<< parameters.username >>${NC}！'"
 
 executors:
   ruby:
