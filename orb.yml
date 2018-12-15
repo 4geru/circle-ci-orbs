@@ -5,7 +5,6 @@ jobs:
   bye:
     executor: ruby
     steps:
-      - checkout
       - bey:
           username: "4geru"
 
