@@ -1,14 +1,14 @@
 version: 2.1
 
 orbs:
-  hello_world: a4geru/hello_world@dev:first
+  awesome-emoji: a4geru/awesome-emoji@dev:first
 
 workflows:
   main:
     jobs:
-      - hello_world/greet:
+      - awesome-emoji/echo:
           username: 4geru
-          emoji: sushi
+          emoji: beer
           time: 10
 
 # neko
