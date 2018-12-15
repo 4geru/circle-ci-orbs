@@ -8,15 +8,26 @@ jobs:
       username:
         type: string
         description: A name of the user to greet
+      emoji:
+        type: enum
+        enum: ['sushi']
+        description: emoji name
+        default: sushi      
+      time:
+        type: string
+        description: number of display
+        default: '1'
+
     steps:
       - run:
           name: Call Bye
           command: echo 'success to display'
-      - bye:
-          username: << parameters.username >>
+      - run:
+          command: emoji=`echo << parameters.emoji >> | tr '[:lower:]' '[:upper:]'`;  eval "echo \$$(echo $emoji)"
 
 
 commands:
+
   hello:
     description: Greet the user politely
     parameters:
@@ -26,14 +37,14 @@ commands:
     steps:
       - run: "echo 'CircleCI Orbs ミニハッカソンへようこそ、<< parameters.username >>！'"
 
-  bye:
-    description: Good bye :)
-    parameters:
-      username:
-        type: string
-        description: A name of the user to greet
-    steps:
-      - run: "echo -e \"\\U0001F363 ${LIGHT_GREEN}<< parameters.username >>${NC}！\""
+  # bye:
+  #   description: Good bye :)
+  #   parameters:
+  #     username:
+  #       type: string
+  #       description: A name of the user to greet
+  #   steps:
+  #     - run: "echo -e \"<< parameters.emoji >> ${LIGHT_GREEN}<< parameters.username >>${NC}！\""
 
 executors:
   ruby:
@@ -42,3 +53,8 @@ executors:
     environment:
       LIGHT_GREEN: '\033[40m\033[1;32m'
       NC: '\033[0m'
+      SUSHI: "\\U0001F363"
+      BEER: "\\U0001F37A"
+
+
+

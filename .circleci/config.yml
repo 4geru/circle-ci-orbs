@@ -8,3 +8,7 @@ workflows:
     jobs:
       - hello_world/greet:
           username: 4geru
+          emoji: sushi
+          time: '10'
+
+# neko
