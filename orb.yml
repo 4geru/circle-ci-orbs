@@ -1,6 +1,14 @@
 version: 2.1
 description: A test orb with an example description.
 
+jobs:
+  bye:
+    executor: ruby
+    steps:
+      - checkout
+      - bey:
+          username: "4geru"
+
 commands:
   hello:
     description: Greet the user politely
@@ -10,3 +18,20 @@ commands:
         description: A name of the user to greet
     steps:
       - run: "echo 'CircleCI Orbs ミニハッカソンへようこそ、<< parameters.username >>！'"
+
+  bey:
+    description: Good bye :)
+    parameters:
+      username:
+        type: string
+        description: A name of the user to greet
+    steps:
+      - run: "echo -e '🍺🍣 ${LIGHT_GREEN} Light Green ${NC}<< parameters.username >>！'"
+
+executors:
+  ruby:
+    docker:
+      - image: circleci/ruby:latest
+    environment:
+      LIGHT_GREEN: '\033[40m\033[1;32m'
+      NC: '\033[0m'
