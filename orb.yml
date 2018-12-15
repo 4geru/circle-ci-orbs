@@ -1,9 +1,8 @@
 version: 2.1
 description: display emojis some times
 
-jobs:
+commands:
   echo:
-    executor: ruby
     parameters:
       emoji:
         type: enum
@@ -17,18 +16,10 @@ jobs:
 
     steps:
       - run:
+          command: |
+            SUSHI="\\U0001F363"
+            BEER="\\U0001F37A"
+
+      - run:
           name: echo
           command: emoji=`echo << parameters.emoji >> | tr '[:lower:]' '[:upper:]'`;  for i in {1..<< parameters.time >>}; do eval "echo -ne \$$(echo $emoji)"; done
-
-executors:
-  ruby:
-    docker:
-      - image: circleci/ruby:latest
-    environment:
-      LIGHT_GREEN: '\033[40m\033[1;32m'
-      NC: '\033[0m'
-      SUSHI: "\\U0001F363"
-      BEER: "\\U0001F37A"
-
-
-
