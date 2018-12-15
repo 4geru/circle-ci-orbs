@@ -16,10 +16,8 @@ commands:
 
     steps:
       - run:
-          command: |
-            SUSHI="\\U0001F363"
-            BEER="\\U0001F37A"
-
-      - run:
           name: echo
           command: emoji=`echo << parameters.emoji >> | tr '[:lower:]' '[:upper:]'`;  for i in {1..<< parameters.time >>}; do eval "echo -ne \$$(echo $emoji)"; done
+          environment:
+            SUSHI: \\U0001F363
+            BEER: \\U0001F37A

@@ -1,19 +1,20 @@
 version: 2.1
 
 orbs:
-  awesome-emoji: a4geru/awesome-emoji:volatile
+  awesome-emoji: a4geru/awesome-emoji@volatile
 
 jobs:
   build:
     docker:
     - image: bash
     steps:
-    - run: "echo 'testing building...'"
-    - awesome-emoji/echo:
-      emoji: beer
-      time: 10
+      - run: "echo 'testing building...'"
+      - awesome-emoji/echo:
+          emoji: beer
+          time: 10
 
 workflows:
   main:
     jobs:
-    - build
+      - build
+
