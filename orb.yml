@@ -2,7 +2,7 @@ version: 2.1
 description: A test orb with an example description.
 
 jobs:
-  bye:
+  greet:
     executor: ruby
     parameters:
       username:
@@ -14,6 +14,7 @@ jobs:
           command: echo 'success to display'
       - bye:
           username: << parameters.username >>
+
 
 commands:
   hello:
@@ -32,7 +33,7 @@ commands:
         type: string
         description: A name of the user to greet
     steps:
-      - run: "echo -e '🍺🍣 ${LIGHT_GREEN}<< parameters.username >>${NC}！'"
+      - run: "echo -e \"\\U0001F363 ${LIGHT_GREEN}<< parameters.username >>${NC}！\""
 
 executors:
   ruby:

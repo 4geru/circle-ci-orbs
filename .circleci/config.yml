@@ -6,6 +6,5 @@ orbs:
 workflows:
   main:
     jobs:
-      - hello_world/bye:
+      - hello_world/greet:
           username: 4geru
-# neko
