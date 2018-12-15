@@ -7,7 +7,6 @@ workflows:
   main:
     jobs:
       - awesome-emoji/echo:
-          username: 4geru
           emoji: beer
           time: 10
 

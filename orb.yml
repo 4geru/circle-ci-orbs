@@ -1,13 +1,10 @@
 version: 2.1
-description: A test orb with an example description.
+description: display emojis some times
 
 jobs:
   echo:
     executor: ruby
     parameters:
-      username:
-        type: string
-        description: A name of the user to greet
       emoji:
         type: enum
         enum: ['sushi', 'beer']
