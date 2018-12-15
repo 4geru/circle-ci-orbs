@@ -14,16 +14,16 @@ jobs:
         description: emoji name
         default: sushi      
       time:
-        type: string
+        type: integer
         description: number of display
-        default: '1'
+        default: 10
 
     steps:
       - run:
           name: Call Bye
           command: echo 'success to display'
       - run:
-          command: emoji=`echo << parameters.emoji >> | tr '[:lower:]' '[:upper:]'`;  eval "echo -e \$$(echo $emoji)"
+          command: emoji=`echo << parameters.emoji >> | tr '[:lower:]' '[:upper:]'`;  for i in {1..<< parameters.time >>}; do eval "echo -ne \$$(echo $emoji)"; done
 
 
 commands:
