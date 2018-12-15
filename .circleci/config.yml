@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  awesome-emoji: a4geru/awesome-emoji@1.0.0
+  awesome-emoji: a4geru/awesome-emoji@volatile
 
 jobs:
   build:
@@ -17,3 +17,5 @@ workflows:
   main:
     jobs:
       - build
+
+# neko
