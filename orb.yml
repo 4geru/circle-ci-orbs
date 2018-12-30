@@ -16,14 +16,10 @@ commands:
 
     steps:
       - run:
-          name: echo
-          command: emoji=`echo << parameters.emoji >> | tr '[:lower:]' '[:upper:]'`; eval "echo -e \$$(echo $emoji)"
-          environment:
-            SUSHI: "\\U0001F363"
-            BEER: "\\U0001F37A"
+          command: bash
       - run:
           name: echo
-          command: emoji=`echo << parameters.emoji >> | tr '[:lower:]' '[:upper:]'`;
+          command: emoji=`echo << parameters.emoji >> | tr '[:lower:]' '[:upper:]'`; eval "echo -e \$$(echo $emoji)"
           environment:
             SUSHI: "\\U0001F363"
             BEER: "\\U0001F37A"
