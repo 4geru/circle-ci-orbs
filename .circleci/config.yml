@@ -11,7 +11,7 @@ jobs:
       - run: "echo 'testing building...'"
       - awesome-emoji/echo:
           emoji: beer
-          time: 10
+          time: 5
 
 workflows:
   main:
