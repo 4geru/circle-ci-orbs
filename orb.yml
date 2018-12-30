@@ -8,16 +8,20 @@ commands:
         type: enum
         enum: ['sushi', 'beer']
         description: emoji name
-        default: sushi      
+        default: sushi
       time:
         type: integer
         description: number of display
         default: 10
+      prefix:
+        type: string
+        description: string add before emoji
+        default: ''
 
     steps:
       - run:
           name: echo
-          command: emoji=`echo << parameters.emoji >> | tr '[:lower:]' '[:upper:]'`; bash -c "for i in {0..<< parameters.time >>};do echo -ne \$(eval 'echo \$$(echo $emoji)'); done"
+          command: emoji=`echo << parameters.emoji >> | tr '[:lower:]' '[:upper:]'`; bash -c "echo << parameters.prefix >>; for i in {0..<< parameters.time >>};do echo -ne \$(eval 'echo \$$(echo $emoji)'); done"
           environment:
             SUSHI: "\\U0001F363"
             BEER: "\\U0001F37A"

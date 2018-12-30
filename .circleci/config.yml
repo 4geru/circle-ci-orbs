@@ -12,6 +12,7 @@ jobs:
       - awesome-emoji/echo:
           emoji: beer
           time: 5
+          prefix: happy
 
 workflows:
   main:
